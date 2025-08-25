@@ -1,6 +1,13 @@
+:host {
+  display: flex;
+  justify-content: center;  /* centraliza na horizontal */
+  align-items: center;      /* centraliza na vertical */
+  min-height: 100vh;        /* ocupa a tela inteira */
+}
+
 form {
   width: 320px;
-  margin: 80px auto;
+  max-width: 380px;
   padding: 30px;
   border-radius: 20px;
   background: linear-gradient(135deg, #0f9d8a, #4b3e91);
@@ -16,7 +23,7 @@ form {
 
   input {
     width: 100%;
-    padding: 10px;
+    padding: 5px;
     border-radius: 25px;
     border: none;
     outline: none;
@@ -52,5 +59,40 @@ form {
       background: #b0c4de;
       cursor: not-allowed;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .login-card {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .login-card label {
+    font-size: 13px;
+  }
+
+  .login-card input {
+    font-size: 14px;
+  }
+
+  .login-card button {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .login-card label {
+    font-size: 12px;
+  }
+
+  .login-card button {
+    font-size: 14px;
+    padding: 10px;
   }
 }
