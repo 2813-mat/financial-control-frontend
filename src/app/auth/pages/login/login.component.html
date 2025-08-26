@@ -1,9 +1,32 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <label>Email</label>
-  <input type="email" formControlName="email" />
+  <label>Email*</label>
+  <div class="input-container">
+    <input
+      type="email"
+      formControlName="email"
+      placeholder="Digite seu email"
+    />
+  </div>
+  <app-form-error [control]="form.get('email')" label="E-mail"></app-form-error>
 
-  <label>Senha</label>
-  <input type="password" formControlName="senha" />
+  <label>Senha*</label>
+  <div class="password-container">
+    <input
+      [type]="showPassword ? 'text' : 'password'"
+      formControlName="senha"
+      placeholder="Digite sua senha"
+      matInput
+    />
+    <button type="button" class="toggle-btn" (click)="togglePassword()">
+      <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+  </div>
+  <app-form-error [control]="form.get('senha')" label="Senha"></app-form-error>
+  <app-password-requirements [password]="form.get('senha')?.value"></app-password-requirements>
 
   <button type="submit" [disabled]="form.invalid">Entrar</button>
+
+  <div *ngIf="errorMessage" class="error-msg">
+    {{ errorMessage }}
+  </div>
 </form>

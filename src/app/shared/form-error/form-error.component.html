@@ -1,0 +1,5 @@
+<div *ngIf="control?.invalid && control?.touched" class="error-msg">
+  <ng-container *ngIf="control?.errors?.['required']">
+    {{ label }} é obrigatório.
+  </ng-container>
+</div>
